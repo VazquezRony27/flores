@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/flores.css">
+  <title>Flores Amarillas</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Flores Amarillas 🌻</h1>
+    
+    <div class="flower-bouquet">
+      <img src="IMG/flower.png" alt="Flor amarilla flotando" class="flower" />
+      <img src="IMG/flower.png" alt="Flor amarilla flotando" class="flower delay-1" />
+      <img src="IMG/flower.png" alt="Flor amarilla flotando" class="flower delay-2" />
+    </div>
+
+    <div class="lyrics">
+      <p>Hoy te traigo flores amarillas,<br> como cada 21 de septiembre 🎶</p><br><p>TE QUIERO MUCHO ❤️</p>
+    </div>
+  </div>
+
+  <!-- Música oculta -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="SOUND/fondo.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Flores cayendo -->
+  <div id="falling-flowers"></div>
+
+  <script src="JS/flores.js"></script>
+</body>
+</html>
