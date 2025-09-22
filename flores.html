@@ -8,21 +8,53 @@
 </head>
 <body>
   <div class="container">
-    <h1> Tus Flores Amarillas 🌻</h1>
-    <h1>Tu Conmigo No Seras Espectadora, Me Importas Mucho Mas De Lo Que Tu Te Imaginas, La Dueña de Mi Corazon My Love❤️❤️❤️</h1>
+    <!-- Título -->
+    <h1>Tus Flores Amarillas 🌻</h1>
+    <h1>Tu conmigo no serás espectadora, me importas mucho más de lo que tú te imaginas, la dueña de mi corazón ❤️❤️❤️</h1>
+
+    <!-- Ramo de flores -->
     <div class="flower-bouquet">
       <img src="IMG/flower.png" alt="Flor amarilla flotando" class="flower" />
       <img src="IMG/flower.png" alt="Flor amarilla flotando" class="flower delay-1" />
       <img src="IMG/flower.png" alt="Flor amarilla flotando" class="flower delay-2" />
     </div>
 
+    <!-- Letras -->
     <div class="lyrics">
-      <p>Hoy te traigo flores amarillas,<br> como cada 21 de septiembre 🎶</p><br><p>TE QUIERO MUCHO ❤️</p><br><p>Me Siento Muy Feliz A Tu Lado, Me Alegras Mis Dias, Te Extraño🥰🥰</p>
+      <p>Hoy te traigo flores amarillas,<br> como cada 21 de septiembre 🎶</p><br>
+      <p>TE QUIERO MUCHO ❤️</p><br>
+      <p>Me siento muy feliz a tu lado, me alegras mis días, te extraño 🥰🥰</p>
+    </div>
+
+    <!-- Reproductor -->
+    <div class="player-wrapper">
+      <div class="player">
+        <!-- Botón play -->
+        <button class="btn-play" id="play-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+
+        <!-- Info de la canción -->
+        <div class="meta">
+          <div class="title">
+            Feliz 21 de septiembre <span class="heart">❤️</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="time" id="current-time">0:00</div>
+            <div class="progress">
+              <div class="bar" id="progress-bar"></div>
+            </div>
+            <div class="time" id="duration">0:00</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Música oculta -->
-  <audio id="bg-music" autoplay loop muted>
+  <!-- Música -->
+  <audio id="bg-music" preload="auto">
     <source src="SOUND/fondo.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
   </audio>
