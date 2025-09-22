@@ -7,6 +7,32 @@
   <title>Flores Amarillas</title>
 </head>
 <body>
+  <!-- Reproductor -->
+    <div class="player-wrapper">
+      <div class="player">
+        <!-- Botón play -->
+        <button class="btn-play" id="play-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+
+        <!-- Info de la canción -->
+        <div class="meta">
+          <div class="title">
+            Feliz 21 de septiembre <span class="heart">❤️</span>
+          </div>
+          <div class="progress-wrap">
+            <div class="time" id="current-time">0:00</div>
+            <div class="progress">
+              <div class="bar" id="progress-bar"></div>
+            </div>
+            <div class="time" id="duration">0:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br>
   <div class="container">
     <!-- Título -->
     <h1>Tus Flores Amarillas Mi Vida🌻</h1>
@@ -36,33 +62,6 @@
   <p>Quiero compartir toda mi vida contigo 💍✨</p><br>
   <p>Siempre serás mi amor eterno 💞</p>
     </div>
-
-    <!-- Reproductor -->
-    <div class="player-wrapper">
-      <div class="player">
-        <!-- Botón play -->
-        <button class="btn-play" id="play-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </button>
-
-        <!-- Info de la canción -->
-        <div class="meta">
-          <div class="title">
-            Feliz 21 de septiembre <span class="heart">❤️</span>
-          </div>
-          <div class="progress-wrap">
-            <div class="time" id="current-time">0:00</div>
-            <div class="progress">
-              <div class="bar" id="progress-bar"></div>
-            </div>
-            <div class="time" id="duration">0:00</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Música -->
   <audio id="bg-music" preload="auto">
