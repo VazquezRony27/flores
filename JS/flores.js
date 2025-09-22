@@ -1,35 +1,49 @@
-function createFallingFlower() { 
-  const flower = document.createElement('img');
-  flower.src = 'IMG/caida.png';
-  flower.classList.add('flower-fall');
+ const audio = document.getElementById("bg-music");
+    const playBtn = document.getElementById("play-btn");
+    const progressBar = document.getElementById("progress-bar");
+    const currentTimeEl = document.getElementById("current-time");
+    const durationEl = document.getElementById("duration");
 
-  // Posición horizontal aleatoria
-  flower.style.left = Math.random() * 100 + 'vw';
+    // Cambiar icono play/pause
+    function updateButton(isPlaying) {
+      playBtn.innerHTML = isPlaying
+        ? `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>`
+        : `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+    }
 
-  // Tamaño aleatorio
-  const size = Math.random() * 20 + 20;
-  flower.style.width = size + 'px';
+    // Formato de tiempo mm:ss
+    function formatTime(sec) {
+      const minutes = Math.floor(sec / 60) || 0;
+      const seconds = Math.floor(sec % 60) || 0;
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
 
-  // Duración aleatoria
-  const duration = Math.random() * 5 + 5;
-  flower.style.animationDuration = duration + 's';
-
-  // Rotación inicial aleatoria
-  flower.style.transform = `rotate(${Math.random() * 360}deg)`;
-
-  document.getElementById('falling-flowers').appendChild(flower);
-
-  // Eliminar después de terminar animación
-  setTimeout(() => flower.remove(), duration * 1000);
-}
-
-// Crear flores cada 300ms
-setInterval(createFallingFlower, 300);
-
-window.addEventListener("load", () => {
-    const audio = document.getElementById("bg-music");
-    audio.muted = false; // Quita el mute cuando la página carga
-    audio.play().catch(() => {
-      console.log("El navegador bloqueó la reproducción automática 😢");
+    // Play / Pause
+    playBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        updateButton(true);
+      } else {
+        audio.pause();
+        updateButton(false);
+      }
     });
-  });
+
+    // Actualizar duración
+    audio.addEventListener("loadedmetadata", () => {
+      durationEl.textContent = formatTime(audio.duration);
+    });
+
+    // Actualizar barra
+    audio.addEventListener("timeupdate", () => {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      progressBar.style.width = `${progress}%`;
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    // Reset al terminar
+    audio.addEventListener("ended", () => {
+      updateButton(false);
+      progressBar.style.width = "0%";
+      currentTimeEl.textContent = "0:00";
+    });
